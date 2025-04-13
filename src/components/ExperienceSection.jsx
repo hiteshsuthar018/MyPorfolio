@@ -51,7 +51,7 @@ const ExperienceSection = () => {
     {
       role: "MERN Stack Developer",
       company: "Stellanova Global Tech",
-      duration: "2023 - Present",
+      duration: "May 2024 - July 2024",
       points: [
         "Developed RESTful APIs using Node.js, Express, and MongoDB",
         "Built interactive React dashboards with Tailwind CSS",
@@ -64,7 +64,7 @@ const ExperienceSection = () => {
     {
       role: "Frontend Developer",
       company: "TechNova Solutions",
-      duration: "2021 - 2023",
+      duration: "June 2023 - July 2023",
       points: [
         "Created responsive UIs with React and Material UI",
         "Reduced bundle size by 30% through optimization",
