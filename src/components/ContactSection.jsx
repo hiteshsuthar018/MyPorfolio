@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
-import { Icon } from '@iconify/react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Stars, Text, useGLTF } from '@react-three/drei';
-import { Suspense, useRef } from 'react';
-import * as THREE from 'three';
+
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",

@@ -61,18 +61,7 @@ const ExperienceSection = () => {
       ],
       techStack: ["React", "Node.js", "MongoDB", "Express", "TailwindCSS"]
     },
-    {
-      role: "Frontend Developer",
-      company: "TechNova Solutions",
-      duration: "June 2023 - July 2023",
-      points: [
-        "Created responsive UIs with React and Material UI",
-        "Reduced bundle size by 30% through optimization",
-        "Collaborated with UX team to implement designs",
-        "Mentored junior developers in React best practices"
-      ],
-      techStack: ["React", "Redux", "Material UI", "GraphQL"]
-    }
+    
   ];
 
   return (
