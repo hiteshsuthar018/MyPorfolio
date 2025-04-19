@@ -103,7 +103,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="text-gray-400">LinkedIn</h4>
                   <a 
-                    href="https://linkedin.com/in/hiteshsuthar" 
+                    href="https://linkedin.com/in/hitesh-suthar-09302526b" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-200 hover:text-purple-400 transition-colors"
