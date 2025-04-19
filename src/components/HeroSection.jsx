@@ -70,7 +70,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30"></div>
       </div>
 
-      <div className="container mx-auto px-6 z-10 flex flex-col md:flex-row items-center">
+      <div className="container mx-auto px-6 z-10 flex flex-col-reverse md:flex-row items-center">
         <div className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Hi, I'm <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">Hitesh</span>

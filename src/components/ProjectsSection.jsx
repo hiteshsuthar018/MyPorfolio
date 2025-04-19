@@ -5,13 +5,21 @@ import { OrbitControls, Text, Float } from "@react-three/drei";
 
 // Sample project videos (random tech-related videos from Pexels)
 const projectVideos = [
-  "https://videos.pexels.com/video-files/854322/854322-sd_640_360_25fps.mp4",
-  "https://videos.pexels.com/video-files/2278095/2278095-sd_640_360_30fps.mp4",
-  "https://videos.pexels.com/video-files/6963744/6963744-hd_1920_1080_25fps.mp4"
+  "https://videos.pexels.com/video-files/3176015/3176015-sd_640_360_25fps.mp4",
 ];
 
 // Sample code snippets (random tech code examples)
 const codeSnippets = [
+
+  `// Node.js server example
+const express = require('express');
+const app = express();
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});`,
   `// Solidity smart contract example
   mapping(address => uint256[]) private clientJobs;
     mapping(uint256 => Job) public jobs;
@@ -26,15 +34,6 @@ const codeSnippets = [
     uint256 private bidCounter = 1;
     uint256 private disputeCounter = 1;`,
 
-  `// Node.js server example
-const express = require('express');
-const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
-});`,
   `// MongoDB query example
 db.users.find({
   age: { $gt: 18 },
@@ -44,7 +43,7 @@ db.users.find({
 
 const ProjectCube = ({ position, color, projectName }) => {
   const meshRef = useRef();
-  
+
   useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.x += 0.01;
@@ -85,14 +84,14 @@ const ProjectsSection = () => {
         const response = await fetch(
           `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc`
         );
-        
+
         if (!response.ok) {
           throw new Error('Failed to fetch projects');
         }
-        
+
         const data = await response.json();
         const filteredProjects = data.filter(project => !project.fork);
-        
+
         const formattedProjects = filteredProjects.map((project, index) => ({
           title: project.name,
           description: project.description || 'No description provided',
@@ -108,7 +107,7 @@ const ProjectsSection = () => {
           videoUrl: projectVideos[index % projectVideos.length],
           codeSnippet: codeSnippets[index % codeSnippets.length]
         }));
-        
+
         setProjects(formattedProjects);
         setLoading(false);
       } catch (err) {
@@ -158,7 +157,7 @@ const ProjectsSection = () => {
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} />
           {featuredProjects.map((project, i) => (
-            <ProjectCube 
+            <ProjectCube
               key={i}
               position={[
                 (i - 1) * 3,
@@ -205,7 +204,7 @@ const ProjectsSection = () => {
             >
               <div className="h-48 bg-gradient-to-r from-purple-500/20 to-blue-500/20 flex items-center justify-center relative overflow-hidden">
                 {project.videoUrl ? (
-                  <video 
+                  <video
                     autoPlay
                     loop
                     muted
@@ -244,7 +243,7 @@ const ProjectsSection = () => {
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (
-                    <motion.span 
+                    <motion.span
                       key={i}
                       initial={{ scale: 0.8 }}
                       whileInView={{ scale: 1 }}
@@ -255,7 +254,7 @@ const ProjectsSection = () => {
                     </motion.span>
                   ))}
                   {project.topics.slice(0, 3).map((topic, i) => (
-                    <motion.span 
+                    <motion.span
                       key={`topic-${i}`}
                       initial={{ scale: 0.8 }}
                       whileInView={{ scale: 1 }}
@@ -269,7 +268,7 @@ const ProjectsSection = () => {
 
                 <ul className="space-y-2 mb-4">
                   {project.features.map((feature, i) => (
-                    <motion.li 
+                    <motion.li
                       key={i}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -285,22 +284,22 @@ const ProjectsSection = () => {
 
                 <div className="mt-6 flex space-x-3">
                   {project.homepage && (
-                    <motion.a 
+                    <motion.a
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      href={project.homepage} 
-                      target="_blank" 
+                      href={project.homepage}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-sm hover:from-purple-500 hover:to-blue-500 transition-all shadow-lg shadow-purple-500/20"
                     >
                       View Demo
                     </motion.a>
                   )}
-                  <motion.a 
+                  <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    href={project.githubUrl} 
-                    target="_blank" 
+                    href={project.githubUrl}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2 border border-gray-600 rounded-lg text-sm hover:bg-gray-700/50 transition-all"
                   >
@@ -315,7 +314,7 @@ const ProjectsSection = () => {
         {/* Horizontal Scroller for Additional Projects */}
         {scrollableProjects.length > 0 && (
           <div className="mt-16">
-            <motion.h3 
+            <motion.h3
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -325,7 +324,7 @@ const ProjectsSection = () => {
                 More Projects
               </span>
             </motion.h3>
-            
+
             <div className="relative group">
               <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-gray-600 no-scrollbar scrollbar-track-gray-800">
                 <div className="flex space-x-5 px-2">
@@ -341,7 +340,7 @@ const ProjectsSection = () => {
                     >
                       <div className="h-32 bg-gradient-to-br from-purple-500/10 to-blue-500/10 flex items-center justify-center relative overflow-hidden">
                         {project.videoUrl ? (
-                          <video 
+                          <video
                             autoPlay
                             loop
                             muted
@@ -379,16 +378,16 @@ const ProjectsSection = () => {
                         </div>
 
                         <div className="mt-3 flex justify-end">
-                          <motion.a 
+                          <motion.a
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            href={project.githubUrl} 
-                            target="_blank" 
+                            href={project.githubUrl}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="px-3 py-1 text-xs bg-gray-700/50 hover:bg-gray-600/50 border border-gray-600 rounded-md transition-colors flex items-center"
                           >
                             <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                              <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                              <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                             </svg>
                             View Code
                           </motion.a>
@@ -398,7 +397,7 @@ const ProjectsSection = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Gradient fade effects on sides */}
               <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-gray-900 to-transparent"></div>
               <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-gray-900 to-transparent"></div>

@@ -25,7 +25,7 @@ const Footer = () => {
               <FiGithub className="text-xl" />
             </a>
             <a 
-              href="https://linkedin.com/in/hiteshsuthar" 
+              href="https://linkedin.com/in/hitesh-suthar-09302526b" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
