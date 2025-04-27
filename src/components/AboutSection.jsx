@@ -119,7 +119,7 @@ const AboutSection = () => {
             className="md:w-1/2 grid grid-cols-2 gap-4"
           >
             {[
-              { title: "Experience", value: "2+ Years", desc: "Professional Development", icon: "⏳" },
+              { title: "Experience", value: "1+ Years", desc: "Professional Development", icon: "⏳" },
               { title: "Projects", value: "15+", desc: "Completed", icon: "🚀" },
               { title: "Blockchain", value: "Expertise", desc: "Solidity & Web3", icon: "⛓️" },
               { title: "Education", value: "B.Tech CSE", desc: "8.0 CGPA", icon: "🎓" },
