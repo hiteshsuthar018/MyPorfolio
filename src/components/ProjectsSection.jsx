@@ -234,13 +234,7 @@ const ProjectsSection = () => {
                 <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
                 <p className="text-gray-400 mb-4">{project.description}</p>
 
-                {/* Code Snippet Preview */}
-                <div className="bg-gray-900 rounded-md p-3 mb-4 overflow-x-auto no-scrollbar">
-                  <pre className="text-xs text-green-400 font-mono">
-                    {project.codeSnippet}
-                  </pre>
-                </div>
-
+                
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (
                     <motion.span
