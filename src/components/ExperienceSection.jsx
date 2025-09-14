@@ -49,6 +49,19 @@ const FloatingTechIcons = () => {
 const ExperienceSection = () => {
   const experiences = [
     {
+      role: "SDE Intern",
+      company: "Bluetick Innovation Pvt Ltd",
+      duration: "June 2025 – August 2025",
+      location: "Udaipur, Rajasthan",
+      points: [
+        "Worked with Electron.js to build cross-platform desktop applications with seamless integration of frontend and backend",
+        "Developed interactive frontend features using React.js and Canvas for dynamic rendering and user interactions",
+        "Contributed to Next.js projects for optimized server-side rendering and improved web performance",
+        "Built and maintained RESTful APIs using Node.js and Express.js, ensuring secure and efficient data handling"
+      ],
+      techStack: ["Electron.js", "React.js", "Next.js", "Node.js", "Express.js", "Canvas"]
+    },
+    {
       role: "MERN Stack Developer",
       company: "Stellanova Global Tech",
       duration: "May 2024 - July 2024",
@@ -108,6 +121,9 @@ const ExperienceSection = () => {
                 <div>
                   <h3 className="text-2xl font-semibold text-white">{exp.role}</h3>
                   <p className="text-purple-400 text-lg">{exp.company}</p>
+                  {exp.location && (
+                    <p className="text-gray-400 text-sm">{exp.location}</p>
+                  )}
                 </div>
                 <span className="px-4 py-2 bg-gray-700/50 rounded-full text-sm font-medium border border-gray-600/50">
                   {exp.duration}

@@ -100,7 +100,7 @@ const HeroSection = () => {
         <div className="md:w-1/2 flex justify-center">
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-purple-500/30">
             <img 
-              src="/images/developer-image.jpeg" 
+              src="/images/portfolio_img.png" 
               alt="Developer"
               className="w-full h-full object-cover"
             />
